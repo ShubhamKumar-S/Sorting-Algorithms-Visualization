@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithm Visualizer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-6xl flex flex-col lg:flex-row gap-8">
+        <!-- Controls Section -->
+        <div class="flex flex-col gap-6 w-full lg:w-1/4">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center lg:text-left">Sort Visualizer</h1>
+
+            <!-- Array Size Control -->
+            <div>
+                <label for="arraySize" class="block text-gray-700 font-semibold mb-2">Array Size: <span id="arraySizeValue">50</span></label>
+                <input type="range" id="arraySize" min="10" max="200" value="50" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <!-- Animation Speed Control -->
+            <div>
+                <label for="animationSpeed" class="block text-gray-700 font-semibold mb-2">Animation Speed: <span id="animationSpeedValue">50</span>ms</label>
+                <input type="range" id="animationSpeed" min="1" max="500" value="50" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+            </div>
+
+            <!-- Algorithm Selection -->
+            <div>
+                <label for="algorithmSelect" class="block text-gray-700 font-semibold mb-2">Select Algorithm:</label>
+                <select id="algorithmSelect" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <option value="bubbleSort">Bubble Sort</option>
+                    <option value="selectionSort">Selection Sort</option>
+                    <option value="insertionSort">Insertion Sort</option>
+                    <option value="mergeSort">Merge Sort</option>
+                    <option value="quickSort">Quick Sort</option>
+                    <option value="heapSort">Heap Sort</option>
+                </select>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col gap-4">
+                <button id="generateArrayBtn" class="btn btn-primary">Generate New Array</button>
+                <button id="startSortBtn" class="btn btn-success">Start Sorting</button>
+                <button id="resetBtn" class="btn btn-secondary">Reset</button>
+            </div>
+
+            <!-- Metrics Display -->
+            <div class="mt-6 p-4 bg-gray-100 rounded-lg shadow-inner">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Metrics:</h3>
+                <p class="text-gray-700">Comparisons: <span id="comparisons">0</span></p>
+                <p class="text-gray-700">Swaps/Moves: <span id="swaps">0</span></p>
+                <p class="text-gray-700">Time Complexity: <span id="timeComplexity">N/A</span></p>
+                <p class="text-gray-700">Space Complexity: <span id="spaceComplexity">N/A</span></p>
+            </div>
+        </div>
+
+        <!-- Visualization Area -->
+        <div class="w-full lg:w-3/4 flex justify-center items-center">
+            <canvas id="sortCanvas" width="900" height="500" class="rounded-xl shadow-xl"></canvas>
+        </div>
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
